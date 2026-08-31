@@ -1,6 +1,6 @@
-﻿namespace WeatherApp.WeatherApp.Core;
+﻿namespace WeatherApp.Core;
 
 public class CurrentCondition
 {
-    
+   
 }

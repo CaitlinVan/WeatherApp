@@ -1,4 +1,4 @@
-﻿namespace WeatherApp.WeatherApp.Infrastructure;
+﻿namespace WeatherApp.Infrastructure;
 
 //Dtos primary responsibility is to transfer data throughout the different layers in the app. 
 

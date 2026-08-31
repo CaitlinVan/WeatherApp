@@ -1,9 +1,10 @@
-﻿namespace WeatherApp.WeatherApp.Core;
+﻿namespace WeatherApp.Core;
 
 public class ForecastDay
 {
-    public DateTime date { get; set; }
-    public double maxTemperature { get; set; }
-    public double minTemperature { get; set; }
-    public int weatherCode { get; set; }
+    public string Day { get; }
+    public double MaxTemperature { get; }
+    public double MinTemperature { get; }
+    public double MaxHumidity { get; }
+    public int Weathercode { get; }
 }

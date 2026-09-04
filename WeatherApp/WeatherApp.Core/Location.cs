@@ -1,8 +1,8 @@
-﻿namespace WeatherApp.Core;
+﻿namespace WeatherApp.Core.Models;
 
 public class Location
 {
-    public string name { get; }
-    public double latitude { get; }
-    public double longitude { get; }
+    public string Name { get; set; } = "";
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
 }

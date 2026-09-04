@@ -1,9 +1,8 @@
-﻿namespace WeatherApp.Core;
+﻿namespace WeatherApp.Core.Models;
 
 public class WeatherForecast
 {
-    public DateTime Date { get; }
-    public int TemperatureC { get; }
-    public int TemperatureF { get; }
-    public string Summary { get; }
+    public Location Location { get; set; } = new();
+    public CurrentCondition Current { get; set; } = new();
+    public List<ForecastDay> DailyForecast { get; set; } = new();
 }

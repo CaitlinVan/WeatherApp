@@ -1,6 +1,6 @@
 ﻿using WeatherApp.Core.Models;
 
-namespace WeatherApp.WeatherApp.Core;
+namespace WeatherApp.Core;
 
 public interface IWeatherServices
 {

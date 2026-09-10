@@ -1,10 +1,11 @@
 ﻿using System.Net.Http.Json;
 using WeatherApp.Core;
 using WeatherApp.Core.Models;
+using WeatherApp.Infrastructure;
 
 namespace WeatherApp.Infrastructure;
 
-public class WeatherServices(HttpClient httpClient) : IWeatherService
+public class WeatherServices(HttpClient httpClient) : IWeatherServices
 {
     public async Task<WeatherForecast> GetWeatherForecastAsync(string cityName, CancellationToken ct = default)
     {
@@ -19,7 +20,7 @@ public class WeatherServices(HttpClient httpClient) : IWeatherService
         var dto = await httpClient.GetFromJsonAsync<ForecastResponse>(url, ct)
                   ?? throw new InvalidOperationException("Failed to fetch forecast.");
 
-        var current = new CurrentConditions
+        var current = new CurrentConditions()
         {
             TemperatureCelsius = dto.Current.Temperature,
             WindSpeedKmh = dto.Current.WindSpeed,
@@ -34,8 +35,8 @@ public class WeatherServices(HttpClient httpClient) : IWeatherService
             var day = new ForecastDay
             {
                 Date = dto.Daily.Time[i],
-                MaxTemperatureCelsius = dto.Daily.MaxTemp[i],
-                MinTemperatureCelsius = dto.Daily.MinTemp[i],
+                MaxTemperatureCelsius = dto.Daily.TemperatureMax[i],
+                MinTemperatureCelsius = dto.Daily.TemperatureMin[i],
                 WeatherCode = dto.Daily.WeatherCode[i]
             };
 

@@ -1,4 +1,6 @@
-﻿namespace WeatherApp.Core.Models;
+﻿using WeatherApp.WeatherApp.Core;
+
+namespace WeatherApp.Core.Models;
 
 public class WeatherForecast
 {

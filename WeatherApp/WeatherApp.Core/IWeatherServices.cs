@@ -1,6 +1,8 @@
-﻿namespace WeatherApp.WeatherApp.Core;
+﻿using WeatherApp.Core.Models;
+
+namespace WeatherApp.WeatherApp.Core;
 
 public interface IWeatherServices
 {
-    public string 
+    Task<WeatherForecast> GetWeatherForecastAsync(string cityName,CancellationToken ct = default);
 }

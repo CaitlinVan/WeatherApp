@@ -18,20 +18,40 @@ public class GeocodingResult()
 
 public class CurrentDTO()
 {
-    public DateTime time { get; set; }
+    [JsonPropertyName("time")]
+    public DateTime Time { get; set; }
     
     [JsonPropertyName("temperature_2m")]
     public double Temperature { get; set; }
     
+    [JsonPropertyName("wind_speed_10m")]
+    public double WindSpeed { get; set; }
+    
+    [JsonPropertyName("weather_code")]
+    public int WeatherCode { get; set; }
     
 }
 
 public class DailyDTO()
 {
+    [JsonPropertyName("time")]
+    public List<DateOnly> Time { get; set; }
+    
+    [JsonPropertyName("temperature_2m_max")]
+    public List<double> TemperatureMax { get; set; }
+    
+    [JsonPropertyName("temperature_2m_min")]
+    public List<double> TemperatureMin { get; set; }
+    
+    [JsonPropertyName("weather_code")]
+    public int WeatherCode { get; set; }
     
 }
 
 public class ForecastResponse()
-{}
+{
+    public CurrentDTO? Current { get; set; }
+    public DailyDTO? Daily { get; set; }
+}
 
 

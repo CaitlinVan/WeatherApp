@@ -72,6 +72,13 @@ public partial class MainWindowViewModel(IWeatherServices weatherServices) : Obs
 
         try
         {
+            Forecast = await weatherServices.GetWeatherForecastAsync(CityInput);
+            DailyForecast.Clear();
+
+            foreach (var day in Forecast.DailyForecast)
+            {
+                DailyForecast.Add(day);
+            }
             
 
         }

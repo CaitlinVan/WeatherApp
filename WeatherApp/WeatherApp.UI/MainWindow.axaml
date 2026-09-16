@@ -23,6 +23,25 @@
         <TextBlock Grid.Row="1" Text="{Binding ErrorMessage}"
                    Foreground="Red" Margin="0,0,0,8"
                    IsVisible="{Binding ErrorMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+        
+        <!-- Current conditions -->
+        <Border Grid.Row="2" Background="Aqua" CornerRadius="12"
+                Margin="0,0,0,16" Padding="24"
+                IsVisible="{Binding Forecast, Converter={x:Static ObjectConverters.IsNotNull}}">
+          <StackPanel HorizontalAlignment="Center" Spacing="4">
+            <TextBlock Text="{Binding Forecast.Location.Name}"
+                       FontSize="14" Opacity="0.7" HorizontalAlignment="Center"></TextBlock>
+             <TextBlock Text="{Binding Forecast.Current.TemperatureCelsius}"
+                       FontSize="40" FontWeight="Medium" HorizontalAlignment="Center"></TextBlock>
+              <TextBlock FontSize="13" Opacity="0.7" HorizontalAlignment="Center">
+                <Run Text="Wind"></Run>
+                <Run Text="{Binding Forecast.Current.WindSpeedKmh, StringFormat='{}{0:0} km/h'}"></Run>
+             </TextBlock>
+          </StackPanel>
+        </Border>
+        
+        
+        
     
     </Grid>
 </Window>
